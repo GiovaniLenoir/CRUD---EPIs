@@ -27,7 +27,7 @@ public class crudEPI {
             } while (opcao != 0);
         }
         static void cadastrarEPI() {
-            System.out.print("Digite o nome do EPI: ");
+            System.out.println("Digite o nome do EPI: ");
             String nome = input.nextLine();
             epis.add(nome);
             System.out.println("EPI cadastrado com sucesso!");
