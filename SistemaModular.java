@@ -22,27 +22,30 @@ public class SistemaModular {
 
             switch (opcao) {
                 case 1:
-                    new SubMenu(EPIs, crudEPI.epis);
+                    new SubMenu.Menu(crudEPI, EPIs, logOperacoes);
                     break;
                 case 2:
-                    new SubMenu(Funcionarios, usuarioEPI.Usuarios);
+                    new SubMenu.Menu(Funcionarios, usuarioEPI, logOperacoes);
                     break;
                 case 3:
-                    new SubMenu(Emprestimos, emprestimoEPI.EmprestimoEPI);
+                    new SubMenu.Menu(Emprestimos, emprestimoEPI, logOperacoes);
                     break;
-                case 0 -> {
-                    System.out.println("Encerranso Sistema...");
-                    System.out.println("---Log de Operações---");
-                    for (String log : logOperacoes) {
-                        System.out.println(log);
-                    }
-                }
-                default -> System.out.println("Opção Inválida.");
-
+                default:
+                    System.out.println("Opção Inválida.");
             }
-        } while (opcao != 0);
+        }while (opcao != 0);
+
+        System.out.println("---Log de Operações---");
+        for (String log : logOperacoes) {
+            System.out.println(log);
+        }
     }
+
+
 }
+
+
+
 
 
 

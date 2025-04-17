@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class SubMenu {
     static Scanner scanner = new Scanner(System.in);
 
-    public SubMenu(ArrayList<String> Lista, String nomeModulo {
+    public static void Menu (String nomeModulo, ArrayList<String> Lista, ArrayList<String> logOperacoes) {
         int opcao;
         do {
             System.out.println("\n ----Modulos " + nomeModulo + "----");
@@ -20,11 +20,30 @@ public class SubMenu {
             switch (opcao) {
                 case 1 -> {
                     System.out.println("Digite seu nome: ");
-                    String entrada = scanner.nextLine();
-                    if (!entrada.isBlank()) ;
-                    Lista.add(entrada);
-                    System.out.println("Cadastro realizado com sucesso!");
-                    SistemaModular.logOperacoes.add("[" + nomeModulo + " Cadastro: " + entrada);
+                    String intem = scanner.nextLine().trim();
+                    if (intem.isEmpty()){
+                        System.out.println("Cadastro não pode ser nulo. Digite novamente: ");
+                    }else {
+                        Lista.add(intem);
+                        logOperacoes.add(nomeModulo + ": Cadastro = " + intem);
+                        System.out.println("Cadastro realizado com sucesso. ");
+                    }
+                    break;
+                    case 2:
+                        System.out.println("---Lista de " + nomeModulo + "---");
+                        if (Lista.isEmpty()){
+                            System.out.println("Nenhum intem cadastrado. ");
+                        }else {
+                            for (int i = 0; i < Lista.size(); i++){
+                                System.out.println(i + " - " + Lista.get(i));
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (Lista.isEmpty()){
+                            System.out.println("Lista está vazia. ");
+
+                        }
                 }
             }
         }
