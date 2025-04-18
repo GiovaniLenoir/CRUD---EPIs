@@ -46,7 +46,7 @@ public class SubMenu {
                         }
                 }
             }
-        }
+        }while (opcao != 0);
     }
 }
 

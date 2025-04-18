@@ -22,13 +22,13 @@ public class SistemaModular {
 
             switch (opcao) {
                 case 1:
-                    new SubMenu.Menu(crudEPI, EPIs, logOperacoes);
+                    SubMenu.Menu(crudEPI, EPIs, logOperacoes);
                     break;
                 case 2:
-                    new SubMenu.Menu(Funcionarios, usuarioEPI, logOperacoes);
+                    SubMenu.Menu(Funcionarios, usuarioEPI, logOperacoes);
                     break;
                 case 3:
-                    new SubMenu.Menu(Emprestimos, emprestimoEPI, logOperacoes);
+                    SubMenu.Menu(Emprestimos, emprestimoEPI, logOperacoes);
                     break;
                 default:
                     System.out.println("Opção Inválida.");
@@ -40,8 +40,6 @@ public class SistemaModular {
             System.out.println(log);
         }
     }
-
-
 }
 
 
