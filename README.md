@@ -52,8 +52,41 @@ para o submenu da operação escolhida
 Você pode escolher a opção desejada e 
 interagir com o sistema.
 
+# Sistema de Gerenciamento Modular
+
+Este projeto consiste em um sistema de gerenciamento modular em Java, 
+com um **submenu CRUD reutilizável** para operações de 
+**Cadastro**, **Leitura**, **Atualização** e **Remoção** de dados. 
+O sistema é modular e pode ser facilmente expandido para diferentes entidades, como 
+**EPIs**, **Funcionários** e **Empréstimos**.
+
+### Funcionalidades
+
+- **Menu Principal** com as opções:
+    - Módulo de EPIs
+    - Módulo de Funcionários
+    - Módulo de Empréstimos
+    - Sair
+
+- **Submenu CRUD** reutilizável:
+    - **Cadastrar** novos itens (como EPIs, Funcionários, Empréstimos).
+    - **Listar** itens cadastrados.
+    - **Atualizar** um item existente.
+    - **Remover** um item.
+
+- **Validações**:
+    - O sistema não permite cadastros ou atualizações com entradas vazias.
+    - Mensagens claras são fornecidas ao usuário em todas as operações.
+    - O sistema valida a entrada de índices para operações de atualização e remoção.
+
+### Arquivos
+
+1. **`SistemaModular.java`**: Classe principal, responsável pelo menu inicial e pela chamada aos submenus de cada módulo (EPIs, Funcionários e Empréstimos).
+2. **`SubmenuCRUD.java`**: Classe que contém o submenu reutilizável, responsável por realizar as operações CRUD para qualquer lista de dados.
+
 **_Contribuições_**
 
-Sinta-se à vontade para contribuir com 
-melhorias ou correções. 
+Sinta-se à vontade para contribuir com
+melhorias ou correções.
+
 
