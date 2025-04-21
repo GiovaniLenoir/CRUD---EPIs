@@ -2,48 +2,50 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SistemaModular {
-    static Scanner scanner = new Scanner(System.in);
-    static ArrayList<String> EPIs = new ArrayList<>();
-    static ArrayList<String> Funcionarios = new ArrayList<>();
-    static ArrayList<String> Emprestimos = new ArrayList<>();
-    static ArrayList<String> logOperacoes = new ArrayList<>();
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayList<String> epis = new ArrayList<>();
+        ArrayList<String> funcionarios = new ArrayList<>();
+        ArrayList<String> emprestimos = new ArrayList<>();
+        ArrayList<String> log = new ArrayList<>();
+
         int opcao;
+
         do {
-            System.out.println("-----Sistema de Gerenciamento-----");
-            System.out.println("1. --Módulo de EPIs--");
-            System.out.println("2. --Módulo de Funcionários--");
-            System.out.println("3. --Módulo de Empréstimos--");
-            System.out.println("0. Sair ");
-            System.out.println("Escolha uma Opção: ");
+            System.out.println("\n=== Sistema de Gerenciamento ===");
+            System.out.println("1. Módulo de EPIs");
+            System.out.println("2. Módulo de Funcionários");
+            System.out.println("3. Módulo de Empréstimos");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcao) {
                 case 1:
-                    SubMenu.Menu(crudEPI, EPIs, logOperacoes);
+                    SubmenuCRUD.executar(epis, "EPIs", log, scanner);
                     break;
                 case 2:
-                    SubMenu.Menu(Funcionarios, usuarioEPI, logOperacoes);
+                    SubmenuCRUD.executar(funcionarios, "Funcionários", log, scanner);
                     break;
                 case 3:
-                    SubMenu.Menu(Emprestimos, emprestimoEPI, logOperacoes);
+                    SubmenuCRUD.executar(emprestimos, "Empréstimos", log, scanner);
+                    break;
+                case 0:
+                    System.out.println("Encerrando o sistema...");
                     break;
                 default:
-                    System.out.println("Opção Inválida.");
+                    System.out.println("Opção inválida!");
             }
-        }while (opcao != 0);
+        } while (opcao != 0);
 
-        System.out.println("---Log de Operações---");
-        for (String log : logOperacoes) {
-            System.out.println(log);
+        System.out.println("\n=== Log de Operações ===");
+        for (String entrada : log) {
+            System.out.println(entrada);
         }
+
+        scanner.close();
     }
 }
-
-
-
-
-
-
