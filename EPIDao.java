@@ -14,7 +14,7 @@ public class EPIDao {
             System.out.println("Erro ao inserir EPI: " + e.getMessage());
         }
     }
-    public ArrayList<EPI> listarEPIs() {
+    public static ArrayList<EPI> listarEPIs() {
         ArrayList<EPI> lista = new ArrayList<>();
         String sql = "SELECT * FROM epi";
         try (Connection conn = Conexao.conectar();
@@ -32,5 +32,19 @@ public class EPIDao {
             System.out.println("Erro ao listar EPIs: " + e.getMessage());
         }
         return lista;
+    }
+    public static void atualizarEPI() {
+        listarEPIs();
+        System.out.print("Digite o índice do EPI a atualizar: ");
+        int index = crudEPI.input.nextInt();
+        crudEPI.input.nextLine();
+        if (index >= 0 && index < crudEPI.epis.size()) {
+            System.out.print("Digite o novo nome: ");
+            String novoNome = crudEPI.input.nextLine();
+            crudEPI.epis.set(index, novoNome);
+            System.out.println("EPI atualizado.");
+        } else {
+            System.out.println("Índice inválido.");
+        }
     }
 }
